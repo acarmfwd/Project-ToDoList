@@ -15,7 +15,7 @@
             </button>
             <ul class="dropdown-menu">
               <li><a id="eventoCrear" class="dropdown-item" onclick="nuevaEvento()">Evento</a></li>
-              <li><a id="tareaCrear" class="dropdown-item">Tarea</a></li>
+              <li><a id="tareaCrear" class="dropdown-item" onclick="nuevaTarea()">Tarea</a></li>
             </ul>
         </div>
     </div>
@@ -24,7 +24,10 @@
             <p id="eventTitle">Eventos</p>
             <div id="eventosCont"></div>
         </div>
-
+        <div id="tareaCont">
+            <p id="taskTitle">Tareas</p>
+            <div id="tareasCont"></div>
+        </div>
     </div>
     <script src="ToDoList.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
