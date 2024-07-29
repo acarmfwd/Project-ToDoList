@@ -1,65 +1,128 @@
 body{
-    background-color: rgb(248, 246, 138);
+    background-image: url(Img/AnimatedBckgrndLogIn.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 600px;
     width: 99%;
-    border: 1px solid yellow;
+    justify-content: center;
+    align-content: center;
+    display: grid;
+    grid-template: 4% 96%/1fr ;
+}
+
+.navBar{
+    display: flex;
+    grid-row: 1;
+    width: 100%;
+    height: 75px;
+    justify-content: right;
+}
+
+.navBar img{
+    display: flex;
+    height: 100%;
+}
+
+#checkbox {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    height: 100px;
+    justify-self: center;
+    margin-top: 75px;
+    margin-right: 700px;
+    
 }
 
 .GreyCont{
-    width: 55%;
+    position: absolute;
+    z-index: 0;
+    grid-row: 2;
+    width: 60%;
     height: 65%;
     margin-left: 22.5%;
     margin-top: 2%;
     align-self: center;
-    background-color: rgba(75, 75, 29, 0.288);
-    border-radius: 6px;
+    background-color: rgba(25, 221, 123, 0.82);
+    border-radius: 10px;
     display: grid;
     grid-template: 1fr/70% 30% ;
+    border: 2px solid rgba(12, 149, 87, 0.807);
 }
 .InfoCont{
     display: flex;
     grid-column: 1;
-    width: 100%;
+    width: 95%;
+    height: 80%;
+    align-self: center;
     justify-self: center;
     flex-direction: column;
     align-content: center;
+    background-color: rgba(0, 96, 19, 0.786);
+    border-radius: 20px;
+}
+
+.InfoCont button {
+    align-self: center;
+    width: 80px;
+    height: 30px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border-style: none;
+    font-weight: bold;
+    color: rgba(2, 97, 21, 0.915);
+    background-color: rgba(246, 246, 246, 0.563);
+}
+
+.InfoCont input {
+   color: rgb(0, 68, 14);
+   font-family: Arial, Helvetica, sans-serif;
 }
 #Bienvenida {
-    font-family: firstfont;
+    font-family: Arial, Helvetica, sans-serif;
     color: white;
     justify-self: center;
+    text-align: center;
     font-size: 24px;
     line-height: 1.25;
     margin-top: 10%;
     font-weight: 650;
     align-self: center;
+    border-radius: 5px;
+    width: 80%;
 }
  #Bienvenida2{
-    font-family: firstfont;
+    font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 255);
-    justify-self: center;
+    text-align: center;
     font-size: 16px;
     line-height: 1.25;
     font-weight: 600;
     align-self: center;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 65%;
+    margin-top: -0px;
  } 
- #CorreoLogin
- {
+ #CorreoLogin{
     display: flex;
-    height: 25px;
+    height: 20px;
     grid-column: 1;
-    width: 80%;
-    justify-self: left;
-    background-color: rgba(255, 255, 255, 0.212);
+    width: 70%;
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.452);
+    border-style: none;
+    border-radius: 3px;
  }
 
  #TextForm { 
     display: flex;
-    font-family: firstfont;
+    font-family: Arial, Helvetica, sans-serif;
     color: rgb(255, 255, 255);
     font-weight: bold;
     align-content: last baseline;
-    height: 50px;
+    height: 20px;
+    align-self: center;
  }
 
  #Correo {
@@ -75,4 +138,68 @@ body{
  #contraLabel {
     grid-column: 1;
     grid-row: 4;
+    display: flex;
+    align-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    align-content: last baseline;
+    height: 20px;
+    margin-top: 5px;
+   
+    
+ }
+
+ #contra {
+    display: flex;
+    height: 20px;
+    grid-column: 1;
+    width: 70%;
+    justify-self: left;
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.452);
+    border-style: none;
+    border-radius: 3px;
+ }
+
+ #registroLogIn { 
+    display: flex;
+    flex-direction: column;
+    grid-column: 2;
+    width: 95%;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    justify-self: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 96, 19);
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.872);
+    border-radius: 10px;
+    font-size: small;
+    border: 2px solid rgba(12, 149, 87, 0.807);
+ }
+
+ #registroLogIn a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);;;
+    border-radius: 2px;
+    align-self: center;
+ }
+
+ #registroLogIn img {
+    align-self: center;
+    justify-self: center;
+    height: 100px;
+ }
+
+
+ #linkRegistro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 96, 19);
+    width: 80px;
+    border-radius: 5px;
+    height: 20px;
  }

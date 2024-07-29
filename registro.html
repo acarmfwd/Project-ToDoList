@@ -4,15 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SignUp</title>
+    <link rel="stylesheet" href="registro.css">
 </head>
 <body>
-    <div>
-        <label for="correoE">Correo Electrónico</label><br>
-        <input type="text" name="correoE" id="correoE"><br><br>
-        <label for="contra">Contraseña</label><br>
-        <input type="password" id="contra">
-        <button onclick="registrar()">Registrar</button>
+    <div id="navBar"><img src="Img/Checkbox.png" alt=""></div>
+    <div id="registroCont">
+        <img id="logoCheck" src="Img/Checkbox.svg" alt="">
+        <div id="smallCont">
+            <label for="correoE">Correo Electrónico:</label><br>
+            <input type="text" name="correoE" id="correoE"><br><br>
+            <label for="contra">Contraseña: </label><br>
+            <input type="password" id="contra"> <br> <br>
+            <button onclick="registrar()">Registrar</button>
+        </div>
+        <img id="Checklist" src="Img/2ndChecklist.svg" alt="">
     </div>
+    
     <script src="ToDoList.js"></script>
 </body>
 </html>
