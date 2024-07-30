@@ -203,3 +203,45 @@ body{
     border-radius: 5px;
     height: 20px;
  }
+ @media (portrait) {
+   .GreyCont{
+      display: flex;
+      flex-direction: column;
+   }
+ }
+ @media (max-width: 900px) {
+
+   #checkbox {
+      height: 65px;
+      margin-left: 300px;
+      margin-top: 160px;
+   }
+   #TextForm { 
+      height: 10px;
+   }
+   #CorreoLogin{
+      display: flex;
+      width: 50%;
+   }
+   #contraLabel {
+      height: 10px;  
+   }
+
+   #contra {
+      display: flex;
+      width: 50%;
+   }
+  
+   #registroLogIn img{
+      height: 50px;
+   }
+   #Bienvenida {
+      font-size: 16px;
+   }
+
+   #Bienvenida2 {
+      font-size: 13px;
+   }
+ }
+
+ 

@@ -171,23 +171,29 @@ function nuevaEvento() {
 
 //Crear evento
 function nuevoEvento() {
-    //Crea los elementos necesarios para la obtencion de los datos
-    let currentCont=document.createElement("div");
+
+    //Creacion de espacios en blanco 
     let blankspace="\u00A0"+"\u00A0"+"\u00A0";
     let whiteJump=document.createElement("label");
     whiteJump.innerHTML=blankspace;
     let whiteJump2=document.createElement("label");
     whiteJump2.innerHTML=blankspace;
+
+    //Crea los elementos necesarios para la obtencion de los datos
     let labelTitle=document.createElement("label");
+    labelTitle.id="inputFont";
     labelTitle.innerHTML="Titulo:"+blankspace;
     let whileCont=document.createElement("div");
     newInputCont.replaceChildren(whileCont);
     let titleNew=document.createElement("input");
+    titleNew.id="inputStyle";
     let labelDate=document.createElement("label");
+    labelDate.id="inputFont";
     labelDate.innerHTML="Fecha:"+blankspace;
     let dateNew=document.createElement("input");
     dateNew.type= "date";
     let sumbitBtn=document.createElement("button");
+    sumbitBtn.id="inputBtn"
     sumbitBtn.innerHTML="Añadir";
 
      //Ingresa los inputs al contenedor 
@@ -205,9 +211,13 @@ function nuevoEvento() {
         let newEvent={...eventoNuevo};
         let evento=titleNew.value;
         let fecha= dateNew.value;
+        if (evento=="" || fecha=="") {
+            return alert ("Por favor ingrese valores para continuar");
+        }
+        
+        //Creacion de contenedores y etiquetas HTML
         let eventoDiv=document.createElement("div");
-
-        //Datos del evento
+        eventoDiv.id="multiCont";
         let descripcionEvento=document.createElement("p");
         let fechaEvento=document.createElement("p");
         descripcionEvento.innerHTML= "Descripcion del evento: "+evento;
@@ -215,6 +225,7 @@ function nuevoEvento() {
 
         //Creacion de botones
         let eliminarBtn=document.createElement("button");
+        eliminarBtn.id="botonOp";
         eliminarBtn.innerHTML=("Eliminar");
         
         //Eliminar Evento
@@ -224,23 +235,38 @@ function nuevoEvento() {
                         eventosExistentes.splice(i,1);
                         localStorage.setItem("eventos", JSON.stringify(eventosExistentes));
                         eventoDiv.remove(this);
-                        currentCont.remove(this);
+                        while (newInputCont.firstChild) {
+                            newInputCont.firstChild.remove();
+                        }
                     }
                 }
             }
+
+        //Boton editar
         let editarBtn=document.createElement("button");
+        editarBtn.id="botonOp";
         editarBtn.innerHTML=("Editar");
+
         //Editar Evento
         editarBtn.onclick= function () {
+
+            //Creacion de contenedor provisional y lo limpia en casa de ser necesario
+            let currentCont=document.createElement("div");
+            newInputCont.replaceChildren(currentCont);
+
             //Crea los elementos necesarios para la obtencion de los datos
             let currentTitleLabel=document.createElement("label")
+            currentTitleLabel.id="inputFont";
             currentTitleLabel.innerHTML="Titulo: "+ blankspace;
             let currentTitle=document.createElement("input");
+            currentTitle.id="inputStyle";
             let currentDateLabel=document.createElement("label");
+            currentDateLabel.id="inputFont";
             currentDateLabel.innerHTML="Fecha: "+blankspace;
             let currentDate=document.createElement("input");
             currentDate.type= "date";
             let enviarBtn=document.createElement("button");
+            enviarBtn.id="inputBtn"
             enviarBtn.innerHTML="Modificar";
 
             //Ingresa los inputs al contenedor 
@@ -257,6 +283,9 @@ function nuevoEvento() {
             enviarBtn.onclick= function () {
                 let newDescrip= currentTitle.value;
                 let newDate=currentDate.value;
+                if (newDescrip=="" || newDate=="") {
+                    return alert ("Por favor ingrese valores para continuar");
+                }
                 for (let i = 0; i< eventosExistentes.length; i++) {   
                     if (eventosExistentes[i].title == evento) {
                         evento=newDescrip;
@@ -291,24 +320,28 @@ function nuevoEvento() {
 
 //funcion para cargar los elementos por primera vez
 function loadEvents() {
+    //Creacion de variable con espacio en blanco
     let blankspace="\u00A0"+"\u00A0"+"\u00A0";
-    let currentCont=document.createElement("div");
+    let whiteJump3=document.createElement("label");
+    whiteJump3.innerHTML=blankspace;
     for (let i = 0; i < eventosExistentes.length; i++) {
-        let eventoDiv=document.createElement("div");
         //Carga los datos del obj Evento en el vector del local storage
         let Titulo= eventosExistentes[i].title;
         let fecha=eventosExistentes[i].date;
         
-        //Datos del evento
+        //Creacion de los contenedores y etiquetas HTML
+        let eventoDiv=document.createElement("div");
+        eventoDiv.id="multiCont";
         let descripcionEvento=document.createElement("p");
         let fechaEvento=document.createElement("p");
         descripcionEvento.innerHTML= "Descripcion del evento: "+Titulo;
         fechaEvento.innerHTML="Fecha del evento: "+fecha;
 
         //Creacion de botones
-
         let eliminarBtn=document.createElement("button");
+        eliminarBtn.id="botonOp";
         eliminarBtn.innerHTML=("Eliminar");
+
         //Eliminar Evento
         eliminarBtn.onclick= function () {
             for (let i = 0; i < eventosExistentes.length; i++) {
@@ -316,28 +349,41 @@ function loadEvents() {
                         eventosExistentes.splice(i,1);
                         localStorage.setItem("eventos", JSON.stringify(eventosExistentes));
                         eventoDiv.remove(this);
-                        currentCont.remove(this);
+                        while (newInputCont.firstChild) {
+                            newInputCont.firstChild.remove();
+                        }
+                    }
                 }
             }
-        }
+
+        //Boton editar
         let editarBtn=document.createElement("button");
+        editarBtn.id="botonOp";
         editarBtn.innerHTML=("Editar");
+
         //Editar Evento
         editarBtn.onclick= function () {
-            //Crea los elementos necesarios para la obtencion de los datos
+            //Creacion de espacios en blanco
             let whiteJump=document.createElement("label");
             whiteJump.innerHTML=blankspace;
             let whiteJump2=document.createElement("label");
             whiteJump2.innerHTML=blankspace;
+
+            //Crea los elementos necesarios para la obtencion de los datos
+            let currentCont=document.createElement("div");
             newInputCont.replaceChildren(currentCont);
             let labelTitle=document.createElement("label");
+            labelTitle.id="inputFont";
             labelTitle.innerHTML="Nuevo Titulo:"+ blankspace ;
             let currentTitle=document.createElement("input");
+            currentTitle.id="inputStyle";
             let labelDate= document.createElement("label");
+            labelDate.id="inputFont";
             labelDate.innerHTML="Confirme la fecha:" +blankspace;
             let currentDate=document.createElement("input");
             currentDate.type= "date";
             let enviarBtn=document.createElement("button");
+            enviarBtn.id="inputBtn";
             enviarBtn.innerHTML="Modificar";
 
             //Ingresa los inputs al contenedor
@@ -354,6 +400,9 @@ function loadEvents() {
             enviarBtn.onclick= function () {
                 let newDescrip= currentTitle.value;
                 let newDate=currentDate.value;
+                if (newDescrip=="" || newDate=="") {
+                    return alert ("Por favor ingrese valores para continuar");
+                }
                 for (let i = 0; i< eventosExistentes.length; i++) {   
                     if (eventosExistentes[i].title == Titulo) {
                         Titulo=newDescrip;
@@ -412,22 +461,26 @@ let tareaCont=document.getElementById("tareasCont");
 //Crear tarea
 function nuevaTarea() {
     let newTask={...tarea};
+
+    //Creacion de variables para espacios en blanco 
     let blankspace="\u00A0"+"\u00A0"+"\u00A0";
-    let inputsDiv=document.createElement("div");
-    newInputCont.replaceChildren(inputsDiv);
     let whiteJump=document.createElement("label");
     whiteJump.innerHTML=blankspace;
     let whiteJump2=document.createElement("label");
     whiteJump2.innerHTML=blankspace;
+
     //Creacion de inputs para la obtecion de valores
     let currentDiv=document.createElement("div");
     newInputCont.replaceChildren(currentDiv);
     let taskTitleLabel=document.createElement("label");
+    taskTitleLabel.id="inputFont";
     taskTitleLabel.innerHTML="Titulo de la Tarea:"+blankspace;
     let taskTitle=document.createElement("input");
+    taskTitle.id="inputStyle";
 
     //Selection de prioridad y sus opciones
     let prioLabel=document.createElement("label");
+    prioLabel.id="inputFont";
     prioLabel.innerHTML="Prioridad de la tarea:"+blankspace;
     let prioSelect=document.createElement("select");
     let lowPrio=document.createElement("option");
@@ -439,7 +492,10 @@ function nuevaTarea() {
     prioSelect.appendChild(lowPrio);
     prioSelect.appendChild(midPrio);
     prioSelect.appendChild(highPrio);
+
+    //Creacion del boton
     let enviarBtn=document.createElement("button");
+    enviarBtn.id="inputBtn";
     enviarBtn.innerHTML="Agregar";
 
     //Agrega los inputs al contenedor 
@@ -453,18 +509,29 @@ function nuevaTarea() {
     newInputCont.appendChild(currentDiv);
 
     enviarBtn.onclick= function () {
+
         //Datos de la tarea
-        let tareaDiv=document.createElement("div");
         let task=taskTitle.value;
         let Prio=prioSelect.value;
+
+        //Contenederos y etiquetas HTML necesarias
+        let tareaDiv=document.createElement("div");
+        tareaDiv.id="multiCont";
         let descripcionTarea=document.createElement("p");
         let prioridadT=document.createElement("p");
         descripcionTarea.innerHTML= "Descripcion de la tarea: "+task;
         prioridadT.innerHTML="Prioridad: "+Prio;
 
+        //Verifica que no entren datos vacios
+        if (task=="" || Prio=="") {
+            return alert ("Por favor ingrese valores para continuar");
+            }
+
         //Creacion de botones
         let eliminarTBtn=document.createElement("button");
+        eliminarTBtn.id="botonOp"
         eliminarTBtn.innerHTML=("Eliminar");
+
         //Eliminar Tarea
         eliminarTBtn.onclick= function () {
             for (let i = 0; i < tareasExistentes.length; i++) {
@@ -472,25 +539,39 @@ function nuevaTarea() {
                         tareasExistentes.splice(i,1);
                         localStorage.setItem("tareas", JSON.stringify(tareasExistentes));
                         tareaDiv.remove(this);
-                        currentDiv.remove(this);
+                        while (newInputCont.firstChild) {
+                            newInputCont.firstChild.remove();
+                        }
                     }
                 }
             }
+
+        //Boton para editar
         let editarTBtn=document.createElement("button");
+        editarTBtn.id="botonOp";
         editarTBtn.innerHTML=("Editar");
         //Editar Tarea
         editarTBtn.onclick= function () {
+            //Crea el contenedor en el que se trabajara y lo limpia en caso de haber algo previo
+            let inputsDiv=document.createElement("div");
+            newInputCont.replaceChildren(inputsDiv);
+
+            //Creacion de espacios en blanco para insertar
             let whiteJump=document.createElement("label");
             whiteJump.innerHTML=blankspace;
             let whiteJump2=document.createElement("label");
             whiteJump2.innerHTML=blankspace;
+
             //Creacion de inputs para la obtecion de valores
             let taskTitleLabel=document.createElement("label");
+            taskTitleLabel.id="inputFont";
             taskTitleLabel.innerHTML="Titulo de la Tarea:"+blankspace;
             let taskTitle=document.createElement("input");
+            taskTitle.id="inputStyle";
 
             //Selection de prioridad y sus opciones
             let prioLabel=document.createElement("label");
+            prioLabel.id="inputFont"
             prioLabel.innerHTML="Prioridad de la tarea:"+blankspace;
             let prioSelect=document.createElement("select");
             let lowPrio=document.createElement("option");
@@ -502,7 +583,10 @@ function nuevaTarea() {
             prioSelect.appendChild(lowPrio);
             prioSelect.appendChild(midPrio);
             prioSelect.appendChild(highPrio);
+
+            //Boton para confirmar datos y guardar la tarea editada
             let enviarBtn=document.createElement("button");
+            enviarBtn.id="inputBtn";
             enviarBtn.innerHTML="Modificar";
 
             //Agrega los inputs al contenedor 
@@ -518,6 +602,12 @@ function nuevaTarea() {
             enviarBtn.onclick= function () {
                 let newDescrip= taskTitle.value;
                 let newPrio=prioSelect.value;
+
+                //Verifica datos
+                if (newDescrip=="" || newPrio=="") {
+                    return alert ("Por favor ingrese valores para continuar");
+                }
+
                 for (let i = 0; i< tareasExistentes.length; i++) {   
                     if (tareasExistentes[i].Nombre == task) {
                         task=newDescrip;
@@ -526,38 +616,45 @@ function nuevaTarea() {
                         localStorage.setItem("tareas", JSON.stringify(tareasExistentes));
                         descripcionTarea.innerHTML= "Descripcion de la tarea: "+ newDescrip;
                         prioridadT.innerHTML="Prioridad: "+ newPrio;
-                        currentDiv.remove(this);
+                        
                     }
+                }
+                while (newInputCont.firstChild) {
+                    newInputCont.firstChild.remove();
                 }   
             }    
         }   
-         //Añade los datos a sus contenedores
-        tareaDiv.appendChild(descripcionTarea);
-        tareaDiv.appendChild(prioridadT);
-        tareaDiv.appendChild(eliminarTBtn);
-        tareaDiv.appendChild(editarTBtn);
-        tareaCont.appendChild(tareaDiv);
+     //Añade los datos a sus contenedores
+    tareaDiv.appendChild(descripcionTarea);
+    tareaDiv.appendChild(prioridadT);
+    tareaDiv.appendChild(eliminarTBtn);
+    tareaDiv.appendChild(editarTBtn);
+    tareaCont.appendChild(tareaDiv);
 
-        //Cambia los datos del obj
-        newTask.Nombre=task
-        newTask.Prio=Prio;
-        tareasExistentes.push(newTask);
-        localStorage.setItem("tareas", JSON.stringify(tareasExistentes));
-        currentDiv.remove(this);
+    //Cambia los datos del obj
+    newTask.Nombre=task
+    newTask.Prio=Prio;
+    tareasExistentes.push(newTask);
+    localStorage.setItem("tareas", JSON.stringify(tareasExistentes));
+    currentDiv.remove(this);
     }
    
 }
 
 //Funcion para cargar las tareas
 function loadTasks() {
+
+    //Creacion de espacio en blanco 
     let blankspace="\u00A0"+"\u00A0"+"\u00A0";
+
     for (let i = 0; i < tareasExistentes.length; i++) {
-        let tareaDiv=document.createElement("div");
         //Carga los datos del obj Evento en el vector del local storage
         let task= tareasExistentes[i].Nombre;
         let Prio=tareasExistentes[i].Prio;
 
-        //Datos de la tarea
+        //Creacion de contenedores y etiquetas HTML
+        let tareaDiv=document.createElement("div");
+        tareaDiv.id="multiCont";
         let descripcionTarea=document.createElement("p");
         let prioridadT=document.createElement("p");
         descripcionTarea.innerHTML= "Descripcion de la tarea: "+task;
@@ -565,7 +662,9 @@ function loadTasks() {
 
         //Creacion de botones
         let eliminarTBtn=document.createElement("button");
+        eliminarTBtn.id="botonOp";
         eliminarTBtn.innerHTML=("Eliminar");
+
         //Eliminar Tarea
         eliminarTBtn.onclick= function () {
             for (let i = 0; i < tareasExistentes.length; i++) {
@@ -573,27 +672,39 @@ function loadTasks() {
                         tareasExistentes.splice(i,1);
                         localStorage.setItem("tareas", JSON.stringify(tareasExistentes));
                         tareaDiv.remove(this);
+                        while (newInputCont.firstChild) {
+                            newInputCont.firstChild.remove();
+                        }
                     }
                 }
             }
 
+        //Boton de editar
         let editarTBtn=document.createElement("button");
+        editarTBtn.id="botonOp"
         editarTBtn.innerHTML=("Editar");
+
         //Editar Tarea
         editarTBtn.onclick= function () {
+
+                // Creacion de espacios en blanco
                 let whiteJump=document.createElement("label");
                 whiteJump.innerHTML=blankspace;
                 let whiteJump2=document.createElement("label");
                 whiteJump2.innerHTML=blankspace;
+
                 //Creacion de inputs para la obtecion de valores
                 let currentDiv=document.createElement("div");
                 newInputCont.replaceChildren(currentDiv);
                 let taskTitleLabel=document.createElement("label");
+                taskTitleLabel.id="inputFont";
                 taskTitleLabel.innerHTML="Titulo de la Tarea:"+blankspace;
                 let taskTitle=document.createElement("input");
+                taskTitle.id="inputStyle";
 
                 //Selection de prioridad y sus opciones
                 let prioLabel=document.createElement("label");
+                prioLabel.id="inputFont"
                 prioLabel.innerHTML="Prioridad de la tarea:"+blankspace;
                 let prioSelect=document.createElement("select");
                 let lowPrio=document.createElement("option");
@@ -605,7 +716,10 @@ function loadTasks() {
                 prioSelect.appendChild(lowPrio);
                 prioSelect.appendChild(midPrio);
                 prioSelect.appendChild(highPrio);
+
+                //Creacion de boton enviar 
                 let enviarBtn=document.createElement("button");
+                enviarBtn.id="inputBtn";
                 enviarBtn.innerHTML="Modificar";
 
                 //Agrega los inputs al contenedor 
@@ -621,6 +735,9 @@ function loadTasks() {
                 enviarBtn.onclick= function () {
                     let newDescrip= taskTitle.value;
                     let newPrio=prioSelect.value;
+                    if (newDescrip=="" || newPrio=="") {
+                        return alert ("Por favor ingrese valores para continuar");
+                        }
                     for (let i = 0; i< tareasExistentes.length; i++) {   
                         if (tareasExistentes[i].Nombre == task) {
                             task=newDescrip;

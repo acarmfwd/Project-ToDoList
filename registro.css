@@ -34,8 +34,8 @@ body {
     height: 100px;
     position: absolute;
     z-index: 1;
-    margin-right: -500px;
-    margin-top: -150px;
+    margin-right: -31.35rem;
+    margin-top: -9.375rem;
 }
 
 #smallCont {
@@ -78,3 +78,46 @@ body {
     margin-left: -500px;
     margin-bottom: -130px;
 }
+
+@media (max-width: 800px){
+    #navBar img{
+        height: 130px;
+    }
+    #logoCheck {
+        height: 75px;
+        margin-right: -275px;
+        margin-top: -150px;
+    }
+    #Checklist {
+        display: flex;
+        height: 75px;
+        position: absolute;
+        z-index: 1;
+        margin-left: -275px;
+        margin-bottom: -130px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    #navBar img{
+        height: 100px;
+    }
+
+    #logoCheck {
+        display: flex;
+        height: 50px;
+        margin-right: -200px;
+        margin-top: -150px;
+    }
+
+    #Checklist {
+        display: flex;
+        height: 50px;
+        position: absolute;
+        z-index: 1;
+        margin-left: -200px;
+        margin-bottom: -130px;
+    }
+}
+

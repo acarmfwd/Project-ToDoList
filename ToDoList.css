@@ -1,15 +1,30 @@
 body {
     width: 99%;
-    height: 600px;
-    border: 1px dashed green;
+    min-height: auto;
+    background-image: url(Img/bodyBackground.svg);
 }   
 
 .navBar {
     width: 100%;
     height: 100px;
-    border: 1px solid red;
     display: grid;
-    grid-template: 1fr / 90% 10% ;
+    grid-template: 1fr /10%  80%  10%;
+    position: fixed;
+    background-color: rgba(13, 104, 63, 0.95);
+    border: 2px solid rgb(1, 38, 18);
+    top: 0;
+}
+
+.navBar img {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    grid-column: 1;
+    height: 80px;
+    background-color: rgba(154, 208, 171, 0.276);
+    border-radius: 10px;
+    margin-left: 50px;
+    padding: 5px;
 }
 
 .dropdown {
@@ -18,30 +33,31 @@ body {
     margin-right: 20px;
     align-items: center;
     height: 100%;
-    grid-column: 2;
+    grid-column: 3;
 }
 
 .dropdown button{
     height: 40px;
+    background-color: white;
+    color: rgb(8, 124, 72);
 }
 
 #inputNew {
-    grid-column: 1;
+    grid-column: 2;
     display: flex;
     width: 100%;
     height: 100px;
-    border: 1px solid blue;
     align-items: center;
     justify-content: space-around;
     text-align: center;
 }
 
 .bigCont {
-    width: 100%;
+    width: 98.7vw;
     display: grid;
     grid-template: 1fr / 50% 50% ;
-    height: 100%;
-    border: 1px solid red;
+    min-height: 100vh;
+    margin-top: 100px;
 }
 
 #eventCont {
@@ -51,13 +67,17 @@ body {
     grid-template: 10% 90%/1fr;
     height: 100%;
     justify-items: center;
-    text-align: center;
+    text-align: center; 
 }
 
 #eventTitle {
     display: flex;
     justify-self: center;
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: xx-large;
+    color: rgb(1, 91, 40);
 }
 
 .eventosCont {
@@ -67,7 +87,6 @@ body {
 #tareaCont {
     grid-row: 1;
     grid-column: 2;
-    border: 1px dashed rgb(31, 216, 3);
     display: grid;
     grid-template: 10% 90%/1fr;
     height: 100%;
@@ -79,9 +98,55 @@ body {
     display: flex;
     justify-self: center;
     align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: xx-large;
+    color: rgb(1, 91, 40);
 }
 
 #tareasCont {
     grid-row: 2;
 }
 
+#botonOp {
+    background-color: rgba(0, 62, 35, 0.915);
+    color: white;
+    border-style: none;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#multiCont {
+    margin-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    background-image: url(Img/postIt.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+    min-height: 150px;
+    min-width: 250px;
+    align-content: center;
+    color: rgb(2, 45, 26);
+    padding: 15px;
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+#inputFont {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#inputBtn {
+    border-style: none;
+    border-radius: 5px;
+    background-color: white;
+    color: rgba(0, 62, 35, 0.915);
+}
+
+#inputStyle {
+    border-style: none;
+    border-radius: 3px;
+}
