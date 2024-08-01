@@ -16,7 +16,7 @@ let alreadyUser=JSON.parse(localStorage.getItem("alreadyUser"));
 
 
 function resetData() {
-    if (alreadyUser.length==0 || alreadyUser==undefined){
+    if (alreadyUser==null || alreadyUser==undefined){
         localStorage.setItem("alreadyUser", JSON.stringify(Users));
     }
 } 
@@ -63,7 +63,7 @@ let currentCorreo=document.getElementById("CorreoLogin");
 let currentPaswrd=document.getElementById("contra");
 
 
-/*Funcion que verificar si el los valores del input ya estan registrados (Existe el usuario)
+/*Funcion que verifica si los valores del input ya estan registrados (Existe el usuario)
 en el local storage, si no alerta que el correo o contraseña son inccorrectos*/
 function login() {
     let correo=currentCorreo.value;
@@ -189,8 +189,9 @@ function nuevoEvento() {
     titleNew.id="inputStyle";
     let labelDate=document.createElement("label");
     labelDate.id="inputFont";
-    labelDate.innerHTML="Fecha:"+blankspace;
+    labelDate.innerHTML="Confirme la fecha:"+blankspace;
     let dateNew=document.createElement("input");
+    dateNew.id="inputDateStyle";
     dateNew.type= "date";
     let sumbitBtn=document.createElement("button");
     sumbitBtn.id="inputBtn"
@@ -381,6 +382,7 @@ function loadEvents() {
             labelDate.id="inputFont";
             labelDate.innerHTML="Confirme la fecha:" +blankspace;
             let currentDate=document.createElement("input");
+            currentDate.id="inputDateStyle"
             currentDate.type= "date";
             let enviarBtn=document.createElement("button");
             enviarBtn.id="inputBtn";

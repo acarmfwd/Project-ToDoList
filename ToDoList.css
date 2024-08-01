@@ -11,7 +11,7 @@ body {
     grid-template: 1fr /10%  80%  10%;
     position: fixed;
     background-color: rgba(13, 104, 63, 0.95);
-    border: 2px solid rgb(1, 38, 18);
+    border: 2px solid rgb(8, 74, 39);
     top: 0;
 }
 
@@ -149,4 +149,84 @@ body {
 #inputStyle {
     border-style: none;
     border-radius: 3px;
+}
+
+@media (max-width: 600px){
+    #multiCont {
+        min-width: 80px;
+        font-size: small;
+        padding: 5px;
+    }
+
+    #inputFont{
+        font-size: small;
+    }
+    #inputStyle{
+        width: 100px;
+    }
+    #inputBtn {
+        width: 70px;
+        font-size: small;
+    }
+   
+    #inputDateStyle {
+        width: 100px;
+
+    }
+    .dropdown button {
+        width: 80px;
+        height: 50px;
+        font-size: small;
+    }
+    .navBar{
+        display: flex;
+    }
+    .navBar img {
+        margin-left: 20px;
+    }
+    .bigCont {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px){
+    #inputFont{
+        font-size: x-small;
+    }
+    #inputStyle{
+        width: 70px;
+        height: 15px;
+    }
+    #inputBtn {
+        width: 70px;
+        font-size: small;
+    }
+   
+    #inputDateStyle {
+        width: 100px;
+
+    }
+    #inputDateStyle {
+        width: 100px;
+        height: 15px;
+    }
+
+    #inputBtn {
+        width: 70px;
+        height: 15px;
+        font-size: x-small;
+    }
+}
+
+@media (max-width: 400px) and (orientation: portrait) {
+    .navBar img {
+       height: 50px;
+    }
+    .navBar {
+        height: 120px;
+    }
+    .bigCont{
+        margin-top: 130px;
+    }
 }

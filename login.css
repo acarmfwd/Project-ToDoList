@@ -29,8 +29,8 @@ body{
     z-index: 1;
     height: 100px;
     justify-self: center;
-    margin-top: 75px;
-    margin-right: 700px;
+    margin-top: 100px;
+    margin-right: 650px;
     
 }
 
@@ -203,17 +203,38 @@ body{
     border-radius: 5px;
     height: 20px;
  }
- @media (portrait) {
+
+@media (max-width: 1200px) and (landscape){
+   #checkbox {
+      height: 75px;
+      margin-top: 120px;
+      margin-left: 180px;
+
+   }
+}
+ @media (max-width: 1000px) and (orientation: portrait) {
+   #checkbox {
+      display: none;
+   }
    .GreyCont{
       display: flex;
       flex-direction: column;
+      justify-content: space-around;
+      height: 500px;
    }
- }
- @media (max-width: 900px) {
+   .InfoCont {
+      height: 300px;
+   }
+   body {
+      height: 1100px;
+   }
+}
+
+@media (max-width: 900px) or (max-height: 550px){
 
    #checkbox {
       height: 65px;
-      margin-left: 300px;
+      margin-left: 200px;
       margin-top: 160px;
    }
    #TextForm { 
@@ -242,6 +263,68 @@ body{
    #Bienvenida2 {
       font-size: 13px;
    }
- }
+
+   .InfoCont{
+     height: 250px;
+   }
+   .GreyCont{
+      min-height: 300px;
+   }
+}
+@media (max-width: 750px) {
+   #checkbox {
+      height: 50px;
+      margin-right: 400px;
+      margin-top: 70px;
+   }
+   .InfoCont {
+      height: 250px;
+   }
+   .GreyCont {
+      height: 450px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+   }
+   #registroLogIn{
+      height: 150px;
+   }
+}
+@media (max-width: 500px) {
+   #Bienvenida {
+      font-size: x-small;
+   }
+   #Bienvenida2 {
+      font-size: x-small;
+   }
+   #checkbox {
+      display: none;
+   }
+   body {
+      height: 500px;
+      grid-template:20% 80%/1fr ;
+   }
+   .GreyCont{
+      justify-content: space-around;
+      height: 100px;
+      font-size: x-small;
+   }
+   .InfoCont{
+      height: 200px;
+   }
+   #registroLogIn{
+      height: 60px;
+      font-size: x-small;
+   }
+   #registroLogIn img{
+      display: none;
+   }
+}
+
+
+
 
  
+
+
+

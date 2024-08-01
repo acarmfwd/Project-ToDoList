@@ -50,6 +50,10 @@ body {
     color: rgba(0, 70, 14, 0.786);
 }
 
+#smallCont a {
+    color:  rgba(0, 70, 14, 0.786);
+}
+
 #smallCont input{
     border-radius: 3px;
     border-style: none;
@@ -79,9 +83,28 @@ body {
     margin-bottom: -130px;
 }
 
-@media (max-width: 800px){
+@media (max-width: 1200px){
     #navBar img{
-        height: 130px;
+        height: 115px;
+    }
+    #logoCheck {
+        height: 85px;
+        margin-right: -400px;
+        margin-top: -150px;
+    }
+    #Checklist {
+        display: flex;
+        height: 85px;
+        position: absolute;
+        z-index: 1;
+        margin-left: -400px;
+        margin-bottom: -130px;
+    }
+}
+
+@media (max-width: 900px){
+    #navBar img{
+        height: 100px;
     }
     #logoCheck {
         height: 75px;
@@ -90,18 +113,18 @@ body {
     }
     #Checklist {
         display: flex;
-        height: 75px;
+        height: 45px;
         position: absolute;
         z-index: 1;
         margin-left: -275px;
-        margin-bottom: -130px;
+        margin-bottom: -180px;
     }
 }
 
 @media (max-width: 600px) {
 
     #navBar img{
-        height: 100px;
+        height: 75px;
     }
 
     #logoCheck {
@@ -121,3 +144,41 @@ body {
     }
 }
 
+@media (max-width:500px ) and (orientation: portrait) {
+    #smallCont input {
+        width: 120px;
+    }
+    #smallCont {
+        font-size: small;
+    }
+    #Checklist{
+        height: 40px;
+        margin-left: -150px;
+        margin-top: 50px;
+    }
+    #logoCheck{
+        height: 40px;
+        margin-right: -170px;
+        margin-top: -170px
+    }
+}
+
+@media (max-width:350px ) and (orientation: portrait) {
+    #smallCont {
+        font-size: x-small;
+    }
+    #smallCont a{
+        font-size: x-small;
+    }
+    #smallCont input {
+        width: 100px;
+    }
+    #Checklist {
+        margin-left: -110px;
+    }
+    #logoCheck {
+        height: 45px;
+        margin-left: -70px;
+        margin-top: -170px;
+    }
+}
